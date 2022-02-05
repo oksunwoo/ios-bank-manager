@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     let processStackView = UIStackView()
     let waitingStackView = UIStackView()
     let workingStackView = UIStackView()
+    let addCustomerButton = UIButton()
+    let resetButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,6 @@ class MainViewController: UIViewController {
     func configureBackGroundView() {
         backGroundStackView.axis = .vertical
         backGroundStackView.backgroundColor = .white
-        //backGroundStackView.distribution = .fillEqually
         backGroundStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backGroundStackView)
         
@@ -48,9 +49,20 @@ class MainViewController: UIViewController {
     
     func configureButtonView() {
         buttonStackView.axis = .horizontal
-        buttonStackView.backgroundColor = .blue
+        buttonStackView.distribution = .fillEqually
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         backGroundStackView.addArrangedSubview(buttonStackView)
+        
+        addCustomerButton.setTitle("고객 10명 추가", for: .normal)
+        addCustomerButton.setTitleColor(.systemBlue, for: .normal)
+        addCustomerButton.addTarget(self, action: #selector(addCustomer), for: .touchUpInside)
+        
+        resetButton.setTitle("초기화", for: .normal)
+        resetButton.setTitleColor(.systemRed, for: .normal)
+        resetButton.addTarget(self, action: #selector(resetBank), for: .touchUpInside)
+    
+        buttonStackView.addArrangedSubview(addCustomerButton)
+        buttonStackView.addArrangedSubview(resetButton)
         
         NSLayoutConstraint.activate([
             buttonStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -100,6 +112,15 @@ class MainViewController: UIViewController {
         workingStackView.axis = .vertical
         processStackView.addArrangedSubview(workingStackView)
     }
+    
+    @objc func addCustomer() {
+        print("10명 추가")
+    }
+    
+    @objc func resetBank() {
+        print("초기화")
+    }
+    
 }
 
 
