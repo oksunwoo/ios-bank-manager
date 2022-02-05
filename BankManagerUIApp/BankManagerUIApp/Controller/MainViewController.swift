@@ -10,19 +10,31 @@ class MainViewController: UIViewController {
     let backGroundStackView = UIStackView()
     let buttonStackView = UIStackView()
     let timerStackView = UIStackView()
-    let bankStackView = UIStackView()
+    let statusStackView = UIStackView()
+    let processStackView = UIStackView()
     let waitingStackView = UIStackView()
-    let processingStackView = UIStackView()
+    let workingStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureView()
+    }
+    
+    func configureView() {
         configureBackGroundView()
+        configureButtonView()
+        configureTimerView()
+        configureStatusView()
+        configureProcessView()
+        configureWaitingView()
+        configureWorkingView()
     }
     
     func configureBackGroundView() {
         backGroundStackView.axis = .vertical
         backGroundStackView.backgroundColor = .white
+        //backGroundStackView.distribution = .fillEqually
         backGroundStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backGroundStackView)
         
@@ -32,6 +44,61 @@ class MainViewController: UIViewController {
             backGroundStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backGroundStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    func configureButtonView() {
+        buttonStackView.axis = .horizontal
+        buttonStackView.backgroundColor = .blue
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+        backGroundStackView.addArrangedSubview(buttonStackView)
+        
+        NSLayoutConstraint.activate([
+            buttonStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            buttonStackView.widthAnchor.constraint(equalTo: backGroundStackView.widthAnchor),
+            buttonStackView.heightAnchor.constraint(equalTo: backGroundStackView.heightAnchor, multiplier: 0.06)
+        ])
+    }
+    
+    func configureTimerView() {
+        timerStackView.backgroundColor = .red
+        timerStackView.translatesAutoresizingMaskIntoConstraints = false
+        backGroundStackView.addArrangedSubview(timerStackView)
+        
+        NSLayoutConstraint.activate([
+            timerStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor),
+            timerStackView.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor),
+            timerStackView.heightAnchor.constraint(equalTo: buttonStackView.heightAnchor)
+        ])
+    }
+    
+    func configureStatusView() {
+        statusStackView.backgroundColor = .green
+        statusStackView.axis = .horizontal
+        statusStackView.translatesAutoresizingMaskIntoConstraints = false
+        backGroundStackView.addArrangedSubview(statusStackView)
+        
+        NSLayoutConstraint.activate([
+            statusStackView.heightAnchor.constraint(equalTo: timerStackView.heightAnchor),
+            statusStackView.topAnchor.constraint(equalTo: timerStackView.bottomAnchor)
+        ])
+    }
+    
+    func configureProcessView() {
+        processStackView.axis = .horizontal
+        processStackView.distribution = .fillEqually
+        backGroundStackView.addArrangedSubview(processStackView)
+    }
+    
+    func configureWaitingView() {
+        waitingStackView.backgroundColor = .gray
+        waitingStackView.axis = .vertical
+        processStackView.addArrangedSubview(waitingStackView)
+    }
+    
+    func configureWorkingView() {
+        workingStackView.backgroundColor = .brown
+        workingStackView.axis = .vertical
+        processStackView.addArrangedSubview(workingStackView)
     }
 }
 
