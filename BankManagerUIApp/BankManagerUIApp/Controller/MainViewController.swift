@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     let workingStackView = UIStackView()
     let addCustomerButton = UIButton()
     let resetButton = UIButton()
+    let titleTextLabel = UILabel()
+    let timeTextLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,9 +74,24 @@ class MainViewController: UIViewController {
     }
     
     func configureTimerView() {
-        timerStackView.backgroundColor = .red
+        timerStackView.distribution = .fillEqually
         timerStackView.translatesAutoresizingMaskIntoConstraints = false
         backGroundStackView.addArrangedSubview(timerStackView)
+        
+        titleTextLabel.text = "업무시간 -"
+        titleTextLabel.textAlignment = .right
+        titleTextLabel.font = .preferredFont(forTextStyle: .title2)
+        titleTextLabel.textColor = .black
+        titleTextLabel.adjustsFontForContentSizeCategory = true
+        
+        timeTextLabel.text = " 00:00:000"
+        timeTextLabel.textAlignment = .left
+        timeTextLabel.font = .preferredFont(forTextStyle: .title2)
+        timeTextLabel.textColor = .black
+        timeTextLabel.adjustsFontForContentSizeCategory = true
+        
+        timerStackView.addArrangedSubview(titleTextLabel)
+        timerStackView.addArrangedSubview(timeTextLabel)
         
         NSLayoutConstraint.activate([
             timerStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor),
