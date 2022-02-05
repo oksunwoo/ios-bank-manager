@@ -72,6 +72,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538891AB27AE7C65004CAAD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		538891AC27AE7C6C004CAAD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		538891AD27AE7C70004CAAD0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7694E3E259C3E9F0053667F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		538891AE27AE7C76004CAAD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		538891AF27AE7C7D004CAAD0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C7694E2E259C3E9F0053667F = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +131,11 @@
 		C7694E39259C3E9F0053667F /* BankManagerUIApp */ = {
 			isa = PBXGroup;
 			children = (
-				C7694E3E259C3E9F0053667F /* ViewController.swift */,
+				538891AB27AE7C65004CAAD0 /* Model */,
+				538891AC27AE7C6C004CAAD0 /* View */,
+				538891AD27AE7C70004CAAD0 /* Controller */,
+				538891AF27AE7C7D004CAAD0 /* Error */,
+				538891AE27AE7C76004CAAD0 /* Extensions */,
 				C7694E3C259C3E9F0053667F /* SceneDelegate.swift */,
 				C7694E3A259C3E9F0053667F /* AppDelegate.swift */,
 				C7694E43259C3EA20053667F /* Assets.xcassets */,
