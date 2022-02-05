@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     let resetButton = UIButton()
     let titleTextLabel = UILabel()
     let timeTextLabel = UILabel()
+    let waitingLabel = UILabel()
+    let workingLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,10 +103,27 @@ class MainViewController: UIViewController {
     }
     
     func configureStatusView() {
-        statusStackView.backgroundColor = .green
         statusStackView.axis = .horizontal
+        statusStackView.distribution = .fillEqually
         statusStackView.translatesAutoresizingMaskIntoConstraints = false
         backGroundStackView.addArrangedSubview(statusStackView)
+        
+        waitingLabel.text = "대기중"
+        waitingLabel.textAlignment = .center
+        waitingLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        waitingLabel.textColor = .white
+        waitingLabel.backgroundColor = .systemGreen
+        waitingLabel.adjustsFontForContentSizeCategory = true
+        
+        workingLabel.text = "업무중"
+        workingLabel.textAlignment = .center
+        workingLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        workingLabel.textColor = .white
+        workingLabel.backgroundColor = .systemIndigo
+        workingLabel.adjustsFontForContentSizeCategory = true
+        
+        statusStackView.addArrangedSubview(waitingLabel)
+        statusStackView.addArrangedSubview(workingLabel)
         
         NSLayoutConstraint.activate([
             statusStackView.heightAnchor.constraint(equalTo: timerStackView.heightAnchor),
